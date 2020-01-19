@@ -171,7 +171,6 @@ public class User {
             return this;
         }
 
-
         public User build() {
             User user = new User();
             user.setName(this.name);

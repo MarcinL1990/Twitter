@@ -10,18 +10,23 @@ import java.util.Set;
 
 
 public class UserManagementServiceImpl implements UserManagementService {
+
     private UserDAO userDAO;
+
     public UserManagementServiceImpl() {
         this.userDAO = new UserDAOImpl();
     }
+
     @Override
     public void saveUser(User user) {
         userDAO.saveUser(user);
     }
+
     @Override
     public void deleteUser(Long userId) {
         userDAO.deleteUser(userId);
     }
+
     @Override
     public void follow(String currentUserLogin, String userLoginToFollow) {
         User currentUser = userDAO.getUserByLogin(currentUserLogin);
@@ -29,6 +34,7 @@ public class UserManagementServiceImpl implements UserManagementService {
         currentUser.getFollows().add(userToFollow);
         saveUser(currentUser);
     }
+
     @Override
     public void stopFollowing(String currentUserLogin, String userLoginToUnfollow) {
         User currentUser = userDAO.getUserByLogin(currentUserLogin);
@@ -36,6 +42,7 @@ public class UserManagementServiceImpl implements UserManagementService {
         currentUser.getFollows().remove(userToFollow);
         saveUser(currentUser);
     }
+
     @Override
     public boolean isUserValid(String login, String password) {
         try {
@@ -44,6 +51,7 @@ public class UserManagementServiceImpl implements UserManagementService {
             return false;
         }
     }
+
     @Override
     public boolean isUserExists(String login) {
         try {
@@ -53,6 +61,7 @@ public class UserManagementServiceImpl implements UserManagementService {
             return false;
         }
     }
+
     @Override
     public Set<User> getNotFollowedUsers(String login) {
         return userDAO.getNotFollowedUsers(login);
