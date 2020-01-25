@@ -31,7 +31,7 @@ public class HibernateUtil {
 
     public void save (Object o) {
         entityManager.getTransaction().begin();
-        if (entityManager.contains(o)) {
+        if (!entityManager.contains(o)) {
             entityManager.persist(o);
             entityManager.flush();
         }

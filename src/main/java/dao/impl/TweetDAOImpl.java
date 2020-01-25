@@ -9,14 +9,16 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class TweetDAOImpl extends AbstractDao implements TweetDAO {
+
     @Override
-    public void saveTweet(User user, String message) {
+    public void addTweet(User user, String message) {
         Tweet tweet = new Tweet();
         tweet.setAuthor(user);
         tweet.setMessage(message);
 
         hibernateUtil.save(tweet);
     }
+
 
     @Override
     public void updateTweet(Long tweetId, String message) {

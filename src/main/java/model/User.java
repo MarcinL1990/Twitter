@@ -156,7 +156,7 @@ public class User {
             return this;
         }
 
-        public UserBuilder lastName(String lastName) {
+        public UserBuilder surname(String lastName) {
             this.lastName = lastName;
             return this;
         }
@@ -177,6 +177,7 @@ public class User {
             user.setLastName(this.lastName);
             user.setEmail(this.email);
             user.setPassword(this.password);
+            user.setLogin(this.login);
             return user;
         }
     }

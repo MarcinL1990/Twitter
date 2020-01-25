@@ -9,8 +9,6 @@ public interface TweetDAO {
 
     void addTweet(User user, String message);
 
-    void saveTweet(User user, String message);
-
     void updateTweet(Long tweetId, String message);
 
     void deleteTweet(Long tweetId);
