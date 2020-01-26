@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "FollowServlet", value = "/follow")
+@WebServlet(name = "Unfollow", value = "/unfollow")
 
-public class FollowServlet extends HttpServlet {
+public class UnfollowServlet extends HttpServlet {
 
     private UserManagementService service;
 
@@ -30,9 +30,8 @@ public class FollowServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String currentUserLogin = ServletUtils.getUserLoginFromSession(req);
-        String userLoginFollow = req.getParameter(ServletUtils.USER_LOGIN_TO_FOLLOW);
-        service.follow(currentUserLogin, userLoginFollow);
+        String userLoginUnfollow = req.getParameter(ServletUtils.USER_LOGIN_TO_UNFOLLOW);
+        service.stopFollowing(currentUserLogin, userLoginUnfollow);
         req.getRequestDispatcher("users").forward(req, resp);
-
     }
 }

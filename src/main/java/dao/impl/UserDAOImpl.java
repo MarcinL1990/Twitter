@@ -40,7 +40,7 @@ public class UserDAOImpl extends AbstractDao implements UserDAO {
         query.setParameter("login", login);
         //TODO implement query with left join relation to follows_followed table
         List<User> users = query.getResultList();
-        Set<User> followedUsers = getFollowers(login);
+        Set<User> followedUsers = getFollows(login);
         users.removeAll(followedUsers);
         return new HashSet<>(users);
     }
