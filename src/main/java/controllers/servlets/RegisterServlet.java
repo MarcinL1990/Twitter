@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static controllers.utis.ServletUtis.*;
+import static controllers.utils.ServletUtils.*;
 
 @WebServlet(name = "RegisterServlet", value = "/register")
 

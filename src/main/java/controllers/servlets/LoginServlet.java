@@ -13,8 +13,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static controllers.utis.ServletUtis.*;
-import static controllers.utis.ServletUtis.USER_PASSWORD;
+import static controllers.utils.ServletUtils.*;
+import static controllers.utils.ServletUtils.USER_PASSWORD;
 
 @WebServlet(name = "LoginServlet", urlPatterns = {"", "/login"})
 

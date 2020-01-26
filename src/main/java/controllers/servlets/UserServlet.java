@@ -1,6 +1,6 @@
 package controllers.servlets;
 
-import controllers.utis.ServletUtis;
+import controllers.utils.ServletUtils;
 import model.User;
 import services.UserManagementService;
 import services.impl.UserManagementServiceImpl;
@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Set;
 
-import static controllers.utis.ServletUtis.FOLLOWED_USERS;
-import static controllers.utis.ServletUtis.UNFOLLOWED_USERS;
+import static controllers.utils.ServletUtils.FOLLOWED_USERS;
+import static controllers.utils.ServletUtils.UNFOLLOWED_USERS;
 
 @WebServlet(name = "UserServlet", value = "/users")
 
@@ -34,7 +34,7 @@ public class UserServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String login = ServletUtis.getUserLoginFromSession(req);
+        String login = ServletUtils.getUserLoginFromSession(req);
         Set<User> followedUsers = service.getFollowedUsers(login);
         Set<User> notFollowedUsers = service.getNotFollowedUsers(login);
         req.setAttribute(FOLLOWED_USERS, followedUsers);
