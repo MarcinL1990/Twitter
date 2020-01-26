@@ -22,6 +22,9 @@ public class ServletUtils {
     public static final String UNFOLLOWED_USERS = "notFollowedUsers";
     public static final String USER_LOGIN_TO_FOLLOW = "userLoginToFollow";
     public static final String USER_LOGIN_TO_UNFOLLOW = "userLoginToUnfollow";
+    public static final String FOLLOWED_TWEETS = "tweets";
+    public static final String TWEET_MESSAGE_PARAM = "tweetMessage";
+    public static final String TWEET_MESSAGE_DELETE = "deleteTweet";
 
     public static String getUserLoginFromSession(HttpServletRequest req) {
         return (String) req.getSession().getAttribute(USER_LOGIN);

@@ -31,13 +31,8 @@ public class DeleteMessageServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String userLoginFromSession = ServletUtils.getUserLoginFromSession(req);
-        String delete = req.getParameter(TWEET_MESSAGE_DELETE);
-        if (delete == null) {
-            req.getRequestDispatcher("deletes").forward(req, resp);
-            return;
-        }
-        service.addTweet(userLoginFromSession, delete);
-        req.getRequestDispatcher("deletes").forward(req, resp);
+        String tweetId = req.getParameter("tweetId");
+        service.deleteTweet(Long.parseLong(tweetId));
+        req.getRequestDispatcher("/messages").forward(req,resp);
     }
 }
