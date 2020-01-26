@@ -57,6 +57,7 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         String login = req.getParameter(USER_LOGIN);
         String password = req.getParameter(USER_PASSWORD);
         boolean isRememberChecked = (CHECKBOX_CHECKED).equals(req.getParameter(REMEMBER));
@@ -75,7 +76,7 @@ public class LoginServlet extends HttpServlet {
         }
 
         if (!service.isUserValid(login, password)) {
-            errors.add(new ValidationError(PASSWORD_ERROR_HEADER, WRONG_PASSOWRD_ERROR_MESSAGE));
+            errors.add(new ValidationError(PASSWORD_ERROR_HEADER, WRONG_PASSWORD_ERROR_MESSAGE));
             req.setAttribute(ERRORS_ATTRIBUTE_NAME, errors);
             req.getRequestDispatcher("/login.jsp").forward(req, resp);
             return;
@@ -92,6 +93,6 @@ public class LoginServlet extends HttpServlet {
             resp.addCookie(passwordCookie);
         }
 
-        req.getRequestDispatcher("user").forward(req, resp);
+        req.getRequestDispatcher("users").forward(req, resp);
     }
 }

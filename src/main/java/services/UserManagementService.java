@@ -13,6 +13,8 @@ public interface UserManagementService {
 
     void stopFollowing(String currentUserLogin, String userLoginToUnfollow);
 
+    Set<User> getFollowedUsers(String login);
+
     Set<User> getNotFollowedUsers(String login);
 
     boolean isUserValid(String login, String password);

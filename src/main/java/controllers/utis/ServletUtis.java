@@ -17,8 +17,10 @@ public class ServletUtis {
     public static final String PASSWORD_ERROR_HEADER = "INVALID_PASSWORD";
     public static final String LOGIN_NOT_EXIST_MESSAGE = "Typed login do not exist";
     public static final String LOGIN_IN_USE_ERROR_MESSAGE = "Typed login is arleady in use";
-    public static final String WRONG_PASSOWRD_ERROR_MESSAGE = "Password not valid";
+    public static final String WRONG_PASSWORD_ERROR_MESSAGE = "Password not valid";
     public static final String EMAIL_ERROR_MESSAGE = "Typed login is arleady in use";
+    public static final String FOLLOWED_USERS = "followedUsers";
+    public static final String UNFOLLOWED_USERS = "notFollowedUsers";
 
     public static String getUserLoginFromSession(HttpServletRequest req) {
         return (String) req.getSession().getAttribute(USER_LOGIN);
